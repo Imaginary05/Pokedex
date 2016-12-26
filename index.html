@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<html lang="en" ng-app="Test-Pokemon">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Sergey Chygrynets">
+  <title>Test--Pokemon</title>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body ng-controller="PokemonCollectionController" >
+  <header>Pokedex</header>
+  
+  <div class="row container-fluid" ng-model="pokemon">
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+      <div class="column">
+        <div class="row card-collection">
+          <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12  " ng-repeat="pokemon in pokemonsData | limitTo:collectionLimit" ng-model="collectionLimit" ng-click="showDetails(pokemon)">
+            <div class="column card-container">
+              <div class="pokemon-image">Image</div>
+              <div class="pokemon-name">{{pokemon.name}}</div>
+              <div class="row">
+                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-11 pokemon-type" ng-repeat="type in pokemon.types">{{type.name}} 
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="btn btn-info btn-lg btn-block" ng-click="more()">Load More</button>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 container details-container" ng-show="pokemon">
+      <div class="column details">
+        <div class="details-image">Image</div>
+        <div class="details-name">{{pokemon.name}} #{{pokemon.national_id}}</div>
+        <div class="row">
+          <div class="col-lg-8 col-md-7 col-sm-6 col-xs-12 border">Type</div>
+          <div class="col-lg-4 col-md-5 col-sm-6 col-xs-12 border" >
+            <span class ="details-type" ng-repeat="type in pokemon.types">{{type.name}} </span>
+          </div>
+        </div>
+        <div class="row" >
+          <div class="col-lg-8 col-md-7 col-sm-6 col-xs-12 border">Attack</div>
+          <div class="col-lg-4 col-md-5 col-sm-6 col-xs-12 border">{{pokemon.attack}}</div>
+        </div>
+        <div class="row">
+          <div class="col-lg-8 col-md-7 col-sm-6 col-xs-12 border">Defense</div>
+          <div class="col-lg-4 col-md-5 col-sm-6 col-xs-12 border">{{pokemon.defense}}</div>
+        </div>
+        <div class="row">
+          <div class="col-lg-8 col-md-7 col-sm-6 col-xs-12 border">HP</div>
+          <div class="col-lg-4 col-md-5 col-sm-6 col-xs-12 border">{{pokemon.hp}}</div>
+        </div>
+        <div class="row">
+          <div class="col-lg-8 col-md-7 col-sm-6 col-xs-12 border">SP Attack</div>
+          <div class="col-lg-4 col-md-5 col-sm-6 col-xs-12 border">{{pokemon.sp_atk}}</div>
+        </div>
+        <div class="row">
+          <div class="col-lg-8 col-md-7 col-sm-6 col-xs-12 border">SP Defense</div>
+          <div class="col-lg-4 col-md-5 col-sm-6 col-xs-12 border">{{pokemon.sp_def}}</div>
+        </div>
+        <div class="row">
+          <div class="col-lg-8 col-md-7 col-sm-6 col-xs-12 border">Speed</div>
+          <div class="col-lg-4 col-md-5 col-sm-6 col-xs-12 border">{{pokemon.speed}}</div>
+        </div>
+        <div class="row">
+          <div class="col-lg-8 col-md-7 col-sm-6 col-xs-12 border">Weight</div>
+          <div class="col-lg-4 col-md-5 col-sm-6 col-xs-12 border">{{pokemon.weight}}</div>
+        </div>
+        <div class="row">
+          <div class="col-lg-8 col-md-7 col-sm-6 col-xs-12 border">Total moves</div>
+          <div class="col-lg-4 col-md-5 col-sm-6 col-xs-12 border">{{moves}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+    
+
+  
+
+  <script src="js/angular/support/angular.min.js"></script>
+  <script src="js/angular/support/angular-ui-router.js"></script>
+  <script src="js/angular/app.js"></script>
+  <script src="js/angular/controllers/pokemons-controller.js"></script>
+  <script src="js/angular/services/pokemons-service.js"></script>
+</body>
+</html>
