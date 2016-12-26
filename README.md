@@ -9,3 +9,7 @@ App written on angularJS, layout made by Bootstrap.
 ## Installation
 
 Download archive and open index.html.
+
+## API Reference
+
+It is loads each pokemon's data from http://pokeapi.co/.
